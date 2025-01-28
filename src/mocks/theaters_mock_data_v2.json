@@ -1,0 +1,128 @@
+[
+    {
+      "id": "a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+      "name": "Downtown Cinemaplex",
+      "location": "Metro City Center",
+      "totalSeats": 280,
+      "numberOfRows": 14,
+      "locationImage": "https://images.unsplash.com/photo-1574267432553-4b4628081c31",
+      "showtimes": [
+        {
+          "id": "SHW-001",
+          "titleId": "TT-5678",
+          "theaterId": "a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+          "showtime": "2024-08-15 18:30",
+          "seatsAvailable": 0,
+          "occupancy": {
+            "1": [3, 5, 7],
+            "3": [1, 2, 4, 6],
+            "5": [8, 9, 10],
+            "7": [2, 5]
+          }
+        },
+        {
+          "id": "SHW-002",
+          "titleId": "TT-9012",
+          "theaterId": "a1b2c3d4-e5f6-7890-g1h2-i3j4k5l6m7n8",
+          "showtime": "2024-08-15 21:15",
+          "seatsAvailable": 280,
+          "occupancy": {}
+        }
+      ]
+    },
+    {
+      "id": "b2c3d4e5-f6g7-8901-h2i3-j4k5l6m7n8o9",
+      "name": "Golden Screen Theater",
+      "location": "Commerce Plaza West",
+      "totalSeats": 200,
+      "numberOfRows": 10,
+      "locationImage": "https://images.unsplash.com/photo-1549576490-b0b4831ef60a",
+      "showtimes": [
+        {
+          "id": "SHW-003",
+          "titleId": "TT-3456",
+          "theaterId": "b2c3d4e5-f6g7-8901-h2i3-j4k5l6m7n8o9",
+          "showtime": "2024-08-16 19:00",
+          "seatsAvailable": 182,
+          "occupancy": {
+            "2": [1, 3, 5, 7, 9],
+            "4": [2, 4, 6, 8],
+            "6": [1, 3, 5]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3d4e5f6-g7h8-9012-i3j4-k5l6m7n8o9p0",
+      "name": "Starlight Multiplex",
+      "location": "Riverfront District",
+      "totalSeats": 320,
+      "numberOfRows": 16,
+      "locationImage": "https://images.unsplash.com/photo-1553440569-bcc63803a83d",
+      "showtimes": [
+        {
+          "id": "SHW-004",
+          "titleId": "TT-7890",
+          "theaterId": "c3d4e5f6-g7h8-9012-i3j4-k5l6m7n8o9p0",
+          "showtime": "2024-08-17 20:00",
+          "seatsAvailable": 295,
+          "occupancy": {
+            "1": [2, 4, 6, 8],
+            "5": [1, 3, 5, 7],
+            "10": [9, 10]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d4e5f6g7-h8i9-0123-j4k5-l6m7n8o9p0q1",
+      "name": "City Lights Cinehub",
+      "location": "Financial District North",
+      "totalSeats": 240,
+      "numberOfRows": 12,
+      "locationImage": "https://images.unsplash.com/photo-1549576490-b0b4831ef60a",
+      "showtimes": [
+        {
+          "id": "SHW-005",
+          "titleId": "TT-1234",
+          "theaterId": "d4e5f6g7-h8i9-0123-j4k5-l6m7n8o9p0q1",
+          "showtime": "2024-08-18 17:45",
+          "seatsAvailable": 220,
+          "occupancy": {
+            "3": [1, 2, 3],
+            "6": [5, 7, 9]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e5f6g7h8-i9j0-1234-k5l6-m7n8o9p0q1r2",
+      "name": "Premiere Theater",
+      "location": "Harbor View Complex",
+      "totalSeats": 180,
+      "numberOfRows": 9,
+      "locationImage": "https://images.unsplash.com/photo-1559136555-9303baea8ebd",
+      "showtimes": [
+        {
+          "id": "SHW-006",
+          "titleId": "TT-5678",
+          "theaterId": "e5f6g7h8-i9j0-1234-k5l6-m7n8o9p0q1r2",
+          "showtime": "2024-08-19 19:30",
+          "seatsAvailable": 180,
+          "occupancy": {}
+        },
+        {
+          "id": "SHW-007",
+          "titleId": "TT-9012",
+          "theaterId": "e5f6g7h8-i9j0-1234-k5l6-m7n8o9p0q1r2",
+          "showtime": "2024-08-19 22:15",
+          "seatsAvailable": 165,
+          "occupancy": {
+            "2": [1, 3, 5],
+            "4": [2, 4, 6],
+            "7": [8, 9]
+          }
+        }
+      ]
+    }
+  ]

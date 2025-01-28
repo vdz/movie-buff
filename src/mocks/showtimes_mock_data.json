@@ -1,0 +1,122 @@
+[
+    {
+        "id": "f128338f-23d2-4238-8020-8937ed63c7e8",
+        "title_id": "1903c41f-7712-40d0-a13a-86b85e0fb229",
+        "theater_id": "cdd421f8-4b01-4903-b302-9f3d3db0b233",
+        "start_time": "2025-01-29 02:08"
+    },
+    {
+        "id": "8c5872ba-d77f-4995-92ec-511e01e9de64",
+        "title_id": "1585d32d-a1ec-4b23-a089-8a81f2c9f327",
+        "theater_id": "cdd421f8-4b01-4903-b302-9f3d3db0b233",
+        "start_time": "2025-01-29 15:08"
+    },
+    {
+        "id": "87ba27d8-142e-4dd4-a44d-a7ba4faf901d",
+        "title_id": "cc3f6ab8-f905-4bb3-aa3a-a86c1acd635d",
+        "theater_id": "cdd421f8-4b01-4903-b302-9f3d3db0b233",
+        "start_time": "2025-01-30 02:08"
+    },
+    {
+        "id": "fbb0006c-b2ff-4a4e-bb74-9a8e8032f8d0",
+        "title_id": "90faf46f-1277-4851-9abb-98d015382e5b",
+        "theater_id": "cdd421f8-4b01-4903-b302-9f3d3db0b233",
+        "start_time": "2025-01-27 16:08"
+    },
+    {
+        "id": "b3ea8b30-961f-42c1-8128-64351eb667ad",
+        "title_id": "6ce0c156-3754-47ed-9313-572bf1f9f7c9",
+        "theater_id": "cdd421f8-4b01-4903-b302-9f3d3db0b233",
+        "start_time": "2025-01-29 16:08"
+    },
+    {
+        "id": "48e3c57f-4125-453c-bbab-8ab1175e5006",
+        "title_id": "44a2094d-e66e-489e-9136-2ee7f1cfc322",
+        "theater_id": "7d9cb205-1b5d-4e04-820c-239ec0d55633",
+        "start_time": "2025-01-28 12:08"
+    },
+    {
+        "id": "d5f14878-da7a-4cfe-bb8d-10d90946c7c5",
+        "title_id": "7e8070e7-d53e-48e4-8420-6c59472067e2",
+        "theater_id": "7d9cb205-1b5d-4e04-820c-239ec0d55633",
+        "start_time": "2025-01-29 10:08"
+    },
+    {
+        "id": "e29edf39-1f39-4deb-87b4-411b8c2390ab",
+        "title_id": "fefb5f6c-60f6-4581-94ca-4f75632f1211",
+        "theater_id": "7d9cb205-1b5d-4e04-820c-239ec0d55633",
+        "start_time": "2025-01-27 20:08"
+    },
+    {
+        "id": "f3eb4e22-c944-4ca3-b119-d546af936ebd",
+        "title_id": "b217eb17-5fa4-4b92-adf3-ede5ef6a939a",
+        "theater_id": "7d9cb205-1b5d-4e04-820c-239ec0d55633",
+        "start_time": "2025-01-30 01:08"
+    },
+    {
+        "id": "da599189-c300-41a0-b4ca-d701697a1207",
+        "title_id": "06e96a87-1abf-4bb2-b770-b2655ee8914a",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-28 01:08"
+    },
+    {
+        "id": "bcac4085-a0f8-4137-94c0-5d0242728ec2",
+        "title_id": "801e0c21-7e5b-4bf7-bbbd-1aec074a0f78",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-28 05:08"
+    },
+    {
+        "id": "b1ee1e5d-04fc-4635-9f67-370b20015556",
+        "title_id": "5ce2cdce-08e5-4564-b30e-5bfbc5c53056",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-27 14:08"
+    },
+    {
+        "id": "3fd592db-c96e-4d27-9059-bf5edc7e8395",
+        "title_id": "30ca35b3-81c9-4590-8144-5a459c51d4ab",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-30 02:08"
+    },
+    {
+        "id": "01259ac7-da88-4c39-b8d4-41e332b3fff4",
+        "title_id": "b1ae3c4d-38bf-474a-a2cd-26bcd22cf43a",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-30 06:08"
+    },
+    {
+        "id": "0656400e-3b43-4309-8ac3-472cdac8b099",
+        "title_id": "42f14d01-bb68-40c2-8537-2a7e9c10b56f",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-29 12:08"
+    },
+    {
+        "id": "1f96a896-de8b-4af6-a0e7-2f7bfa28c527",
+        "title_id": "c2853b89-8d43-45c6-b7d9-986c5491cd27",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-29 02:08"
+    },
+    {
+        "id": "c658e10f-beb1-4c28-9c36-3601d11aaff8",
+        "title_id": "a2a6a5c0-a541-4bb8-8724-7a89fb757441",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-27 20:08"
+    },
+    {
+        "id": "322c1310-d01e-4fd9-8073-7b970f23de70",
+        "title_id": "832f22ac-5017-49e9-b3c0-dd0b4d93faf7",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-29 20:08"
+    },
+    {
+        "id": "90faa961-c24c-4f43-beb5-1c409e9b4938",
+        "title_id": "488dd552-77d5-4c00-a578-39859a5d093a",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-28 23:08"
+    },
+    {
+        "id": "3084b721-1117-45ea-bc9e-8a4dc05a7b98",
+        "title_id": "fde26781-fd97-4334-aca3-5ad15e684049",
+        "theater_id": "e571dfcc-8651-4032-ab61-70abe6874a6d",
+        "start_time": "2025-01-29 01:08"
+    }
+]
