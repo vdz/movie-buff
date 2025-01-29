@@ -8,7 +8,9 @@ import { selectShowtime } from "@/store/bookings/bookings.actions";
 import { useNavigate } from "react-router-dom";
 import { getSeatsPath } from "@/lib/paths";
 import { Showtime } from "@/store/theaters/types";
-import classNames from "classnames";
+import { formatShowtime } from "@/lib/formatShowtime";
+
+
 export function Showtimes() {
     const theaters = useSelector((state: RootState) => state.theaters.theaters);
     const titleId = useSelector((state: RootState) => state.bookings.selectedTitleId);
@@ -59,7 +61,10 @@ export function Showtimes() {
                                         dispatch(selectShowtime({ showtimeId: showtime.id }));
                                         navigate(getSeatsPath(titleId!, showtime.id))
                                     }}
-                                    title={showtime.seatsAvailable ? 'Select' : 'Sold Out'}
+                                    title={showtime.seatsAvailable ? 
+                                        `Select out of ${showtime.seatsAvailable} seats` : 
+                                        `Sold Out`}
+                                    data-availibility={showtime.seatsAvailable}
                                     {...buttonProps}
                                 >
                                     {formatShowtime(showtime.showtime)}
@@ -70,10 +75,5 @@ export function Showtimes() {
                 </TheaterSummary>
             );
         });
-    }
-
-    function formatShowtime(showtime: string) {
-        const date = new Date(showtime);
-        return date.toLocaleString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
     }
 }

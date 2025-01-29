@@ -1,0 +1,1 @@
+export const GENERIC_TICKET_PRICE = 7;

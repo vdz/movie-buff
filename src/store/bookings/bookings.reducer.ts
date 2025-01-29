@@ -18,7 +18,6 @@ export const reducer = createReducer<BookingState>(defaultState, (builder) => {
     }).addCase(removeSeat, (state, action) => {
         state.selectedSeats = state.selectedSeats.filter(seat => seat.row !== action.payload.seat.row || seat.seat !== action.payload.seat.seat);
     }).addCase(resetBooking, (state) => {
-        state.selectedTitleId = '';
         state.selectedShowtimeId = '';
         state.selectedSeats = [];
     });

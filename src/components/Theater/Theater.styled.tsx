@@ -81,6 +81,18 @@ export const TheaterShowtime = styled(Button)`
     &.ant-btn-dangerous {
         cursor: not-allowed;
     }
+
+    &[data-availibility="0"]::after {
+        content: 'Sold Out';
+        font-size: 0.6rem;
+        color: var(--remove-color);
+    }
+
+    &:not([data-availibility="0"])::after {
+        content: attr(data-availibility) ' seats';
+        font-size: 0.6rem;
+        color: var(--primary-color-lighter);
+    }
 `;
 
 

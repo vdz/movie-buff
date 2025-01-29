@@ -1,4 +1,5 @@
 import { Status } from "@/lib/requestStatus";
+import { SeatInfo } from "../bookings/types";
 
 export interface Occupancy {
     [key: string]: number[] | undefined;
@@ -39,4 +40,9 @@ export interface TheatersFetchSuccessPayload {
 
 export interface TheatersFetchFailurePayload {
     error: string;
+}
+
+export interface UpdateOccupancyPayload {
+    showtimeId: string;
+    seat: SeatInfo;
 }

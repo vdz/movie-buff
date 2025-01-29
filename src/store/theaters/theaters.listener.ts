@@ -1,9 +1,10 @@
-import { theatersFetchFailure, theatersFetchSuccess } from "./theaters.actions";
+import { addOccupiedSeat, removeOccupiedSeat, theatersFetchFailure, theatersFetchSuccess } from "./theaters.actions";
 
 import { Listener } from "../listener";
 import { theatersFetch } from "./theaters.actions";
 import { getTheaters, formatServerData } from "./theater.api";
-import { selectTitle } from "../bookings/bookings.actions";
+import { addSeat, removeSeat, selectTitle } from "../bookings/bookings.actions";
+import { AddSeatPayload, RemoveSeatPayload } from "../bookings/types";
 
 export const theatersListener: Listener[] = [
     {
@@ -40,5 +41,27 @@ export const theatersListener: Listener[] = [
             // preemptively populate theaters for the selected title
             dispatch(theatersFetch());
         }
-    }
+    },
+    // {
+    //     actionCreator: addSeat,
+    //     effect: async (action : { payload: AddSeatPayload }, { dispatch, getState }) => {
+    //         if (!getState().bookings.selectedShowtimeId) return;
+    //         dispatch(addOccupiedSeat({
+    //             showtimeId: getState().bookings.selectedShowtimeId,
+    //             seat: action.payload.seat
+    //         }));
+    //     }
+    // },
+    // {
+    //     actionCreator: removeSeat,
+    //     effect: async (action : { payload: RemoveSeatPayload }, { dispatch, getState }) => {
+    //         if (!getState().bookings.selectedShowtimeId) return;
+
+    //         dispatch(removeOccupiedSeat({
+    //             showtimeId: getState().bookings.selectedShowtimeId,
+    //             seat: action.payload.seat
+    //         }));
+    //     }
+    // }
+
 ]

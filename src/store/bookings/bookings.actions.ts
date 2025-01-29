@@ -7,3 +7,4 @@ export const selectShowtime = createAction<SelectShowtimePayload>('bookings/sele
 export const addSeat = createAction<AddSeatPayload>('bookings/addSeat');
 export const removeSeat = createAction<RemoveSeatPayload>('bookings/removeSeat');
 export const resetBooking = createAction('bookings/resetBooking');
+export const bookSeats = createAction('bookings/bookSeats');
