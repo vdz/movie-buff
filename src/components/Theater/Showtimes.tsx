@@ -9,11 +9,13 @@ import { useNavigate } from "react-router-dom";
 import { getSeatsPath } from "@/lib/paths";
 import { Showtime } from "@/store/theaters/types";
 import { formatShowtime } from "@/lib/formatShowtime";
+import { Title } from "../Titles/Titles.styled";
 
 
 export function Showtimes() {
     const theaters = useSelector((state: RootState) => state.theaters.theaters);
     const titleId = useSelector((state: RootState) => state.bookings.selectedTitleId);
+    const title = useSelector((state: RootState) => state.titles.byId[titleId!].name);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -21,6 +23,7 @@ export function Showtimes() {
     
     return (
         <ShowtimesContainer>
+            <Title>Showtimes for <span>{title}</span></Title>
             {showListingsByTheater()}
         </ShowtimesContainer>
     );

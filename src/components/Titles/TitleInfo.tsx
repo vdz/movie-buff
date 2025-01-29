@@ -30,7 +30,6 @@ export function TitleInfo() {
     return (
         <TitleInfoContainer>
             <TitleInfoHeader>
-                <TitleInfoTitle>{info?.name}</TitleInfoTitle>
                 <TitleResult id={id} />
             </TitleInfoHeader>
             <Showtimes />

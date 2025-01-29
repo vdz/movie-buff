@@ -18,6 +18,7 @@ export const ShowtimesContainer = styled.section`
     flex-grow: 1;
     background-color: #fff;
     padding: 16px;
+    border-left: 1px solid var(--primary-color-lighter);
 `;
 
 export const TheaterSummary = styled.dl`
@@ -48,8 +49,8 @@ export const TheaterName = styled.h3`
     font-family: Avenir;
     font-weight: 900;
     font-size: 0.9rem;
-    color: var(--secondary-color);
-    margin: 0.5rem 0 1.5rem;
+    color: var(--primary-color-light);
+    margin: 0.5rem 0;
 `;
 
 export const TheaterLocation = styled.p`
@@ -57,6 +58,7 @@ export const TheaterLocation = styled.p`
     font-weight: 300;
     font-size: 0.8rem;
     color: --primary-color-lighter;
+    margin-bottom: 0.5rem;
 `;
 
 export const TheaterLocationImage = styled(Image)`

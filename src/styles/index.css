@@ -1,12 +1,13 @@
 :root {
   --primary-color: #242424;
-  --primary-color-light: #444;
+  --primary-color-light: #5a5a5a;
   --primary-color-lighter: #ccc;
-  --secondary-color: #f18a0c;
-  --accent-color: #f7cf20;
+  --secondary-color: #1677ff;
+  --accent-color: #ffc25f;
   --background-color: #f0f0f0;
   --border-radius: 0.5rem;
-  --remove-color: tomato;
+  --remove-color: #ff4d4f;
+
   --font-family: Avenir, Helvetica, Arial, sans-serif;
 
   --app-gap: 0.5rem;

@@ -5,7 +5,7 @@ import { Duration, Genre, Genres, Rating, ReleaseYear, TitleResultContainer } fr
 import { titlesSetGenre } from '@/store/titles/titles.actions';
 import { selectTitle } from '@/store/bookings/bookings.actions';
 import { useNavigate } from 'react-router-dom';
-import { getTitlePagePath } from '@/lib/paths';
+import { getHomePath, getTitlePagePath } from '@/lib/paths';
 const { Meta } = Card;
 
 export function TitleResult({ id }: { id: string }) {
@@ -13,6 +13,7 @@ export function TitleResult({ id }: { id: string }) {
     const dispatch = useDispatch();
     const isLoading = (!info);
     const navigate = useNavigate();
+    
     return (
         <TitleResultContainer
             loading={isLoading}
@@ -55,7 +56,8 @@ export function TitleResult({ id }: { id: string }) {
                     type="dashed"
                     size="small"
                     onClick={() => {
-                    dispatch(titlesSetGenre({value: genre}));
+                    dispatch(titlesSetGenre({value: [genre]}));
+                    navigate(getHomePath());
                 }}>{genre}</Genre>
             ))
         }</Genres>;

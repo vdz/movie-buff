@@ -94,8 +94,3 @@ export const TitleInfoHeader = styled.header`
     align-items: center;
     justify-content: center;
 `;
-
-export const TitleInfoTitle = styled.h2`
-    font-size: 1.5rem;
-    font-weight: bold;
-`;
