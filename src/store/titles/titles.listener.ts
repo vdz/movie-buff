@@ -1,5 +1,5 @@
 import { Listener } from "@/store/listener";
-import { titlesFetch, titlesFetchSuccess, titlesFetchFailure, titleSetSearchTerm, titlesSetFiltered } from "./titles.actions";
+import { titlesFetch, titlesFetchSuccess, titlesFetchFailure, titleSetSearchTerm, titlesSetFiltered, titlesSetGenre, titlesSetRating } from "./titles.actions";
 import { formatServerData, getTitles } from "./titles.api";
 import { TitleSetSearchTermPayload, TitlesFetchPayload, Title, TitlesState, Genre } from "./types";
 import { selectTitle } from "@/store/bookings/bookings.actions";
@@ -29,8 +29,22 @@ export const titlesListener: Listener[]  = [
             }
 
             let filtered = search(getState().titles.titles, searchTerm);
-            filtered = filter(filtered, getState().titles.filter);
+            filtered = filter(getState().titles);
 
+            dispatch(titlesSetFiltered({filtered}));
+        }
+    },
+    {
+        actionCreator: titlesSetGenre,
+        effect: async (_, { getState, dispatch}) => {
+            const filtered = filter(getState().titles);
+            dispatch(titlesSetFiltered({filtered}));
+        }
+    },
+    {
+        actionCreator: titlesSetRating,
+        effect: async (_, { getState, dispatch}) => {
+            const filtered = filter(getState().titles);
             dispatch(titlesSetFiltered({filtered}));
         }
     },
@@ -54,17 +68,18 @@ function search(titles: Title[], searchTerm: string): Title[] {
 }
 
 // very basic filtering done not in the most efficient way to lessen the time complexity
-function filter(titles: Title[], filter: TitlesState['filter']): Title[] {
-    let result = titles;
+function filter(state: TitlesState, filtered?: Title[]): Title[] {
+    let result = filtered || state.titles;
+    const filter = state.filter;
 
     if (filter.genre.value) {
-        result = result.filter((item: Title) => item.genre.includes(filter.genre.value as Genre));
+        const genres = filter.genre.value;
+        result = result.filter((item: Title) => {
+            return genres.every((genre) => item.genre.includes(genre as Genre));
+        });
     }
     if (filter.rating.value) {
         result = result.filter((item: Title) => item.rating >= Number(filter.rating.value));
-    }
-    if (filter.duration.value) {
-        result = result.filter((item: Title) => item.duration >= Number(filter.duration.value));
     }
     return result;
 }

@@ -7,6 +7,5 @@ export const titlesFetchFailure = createAction<TitlesFetchFailurePayload>('title
 export const titleSetSearchTerm = createAction<TitleSetSearchTermPayload>('titles/setSearchTerm');
 export const titlesSetFiltered = createAction<TitlesSetFilteredPayload>('titles/setFiltered');
 export const titlesSetGenre = createAction<TitlesSetGenrePayload>('titles/setGenre');
-export const titlesFilterSet = createAction<TitlesFilterSetPayload>('titles/filterSet');
-export const titlesFilterReset = createAction<TitlesFilterResetPayload>('titles/filterReset');
+export const titlesSetRating = createAction<TitlesSetRatingPayload>('titles/setRating');
 export const titlesFilterResetAll = createAction('titles/filterResetAll');

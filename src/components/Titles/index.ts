@@ -1,5 +1,5 @@
 import { TitleResult } from './TitleResult';
 import { TitleInfo } from './TitleInfo';
-import { TitlesPage } from './TitlesPage';
+import { Titles } from './Titles';
 
-export { TitleResult, TitleInfo, TitlesPage };
+export { TitleResult, TitleInfo, Titles };

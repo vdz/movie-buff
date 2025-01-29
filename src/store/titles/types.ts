@@ -11,16 +11,23 @@ export interface TitlesState {
     error: string | null;
     search: string;
     filter: {
-        genre: Filter;
-        duration: Filter;
-        rating: Filter;
+        genre: GenreFilter;
+        rating: RatingFilter;
     };
 }
 
 export interface Filter {
-    value: string | number |null;
+    value: string | string[] | number |null;
     order?: 'asc' | 'desc';
 }
+
+export type GenreFilter = Filter & {
+    value: string[];
+};
+
+export type RatingFilter = Filter & {
+    value: number | null;
+};
 
 export interface Title {
     id: string;
@@ -49,15 +56,6 @@ export interface TitlesFetchFailurePayload {
     error: string;
 }
 
-export interface TitlesFilterSetPayload {
-    value: string | number |null;
-    order?: 'asc' | 'desc';
-}
-
-export interface TitlesFilterResetPayload {
-    name: string;
-}
-
 export type TitleSetSearchTermPayload = string;
 
 export interface TitlesSetFilteredPayload {
@@ -65,6 +63,10 @@ export interface TitlesSetFilteredPayload {
 }
 
 export interface TitlesSetGenrePayload {
-    value: string;
+    value: string[];
     // order?: 'asc' | 'desc'; // for future use for ordering output by filter, also see titles.reducer.ts & titles.api.ts
+}
+
+export interface TitlesSetRatingPayload {
+    value: number | null;
 }

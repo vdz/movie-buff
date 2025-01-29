@@ -8,7 +8,7 @@ import { Filters } from '../Filters/Filters';
 import { titlesFetch } from '@/store/titles/titles.actions';
 import { useManualHydration } from '@/lib/useManualHydration';
 
-export function TitlesPage() {
+export function Titles() {
     const titles = useSelector((state: RootState) => state.titles.titles);
     const filtered = useSelector((state: RootState) => state.titles.filtered);
     const search = useSelector((state: RootState) => state.titles.search);
@@ -32,7 +32,7 @@ export function TitlesPage() {
         }
         
         let result = titles;
-        if (search || filter.genre.value || filter.duration.value || filter.rating.value) {
+        if (search || filter.genre.value || filter.rating.value) {
             result = filtered;
         }
 

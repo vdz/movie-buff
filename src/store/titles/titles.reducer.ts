@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { TitlesState } from "@/store/titles/types";
-import { titleSetSearchTerm, titlesFetch, titlesFetchFailure, titlesFetchSuccess, titlesFilterReset, titlesFilterSet, titlesSetFiltered, titlesSetGenre } from "@/store/titles/titles.actions";
+import { titleSetSearchTerm, titlesFetch, titlesFetchFailure, titlesFetchSuccess, titlesFilterResetAll, titlesSetFiltered, titlesSetGenre, titlesSetRating } from "@/store/titles/titles.actions";
 
 export const defaultState: TitlesState = {
     titles: [],
@@ -11,10 +11,6 @@ export const defaultState: TitlesState = {
     search: '',
     filter: { // key-value map of filters
         genre: {
-            value: null,
-            // order: 'asc' this can be added later
-        },
-        duration: {
             value: null,
             // order: 'asc' this can be added later
         },
@@ -47,9 +43,14 @@ export const reducer = createReducer(defaultState, (builder) => {
         state.status = 'loading';
         state.filter.genre = action.payload;
     })
-    .addCase(titlesFilterReset, (state) => {
+    .addCase(titlesSetRating, (state, action) => {
+        state.status = 'loading';
+        state.filter.rating = action.payload;
+    })
+    .addCase(titlesFilterResetAll, (state) => {
         state.status = 'idle';
         state.filtered = [];
         state.search = '';
+        state.filter = defaultState.filter;
     })
 })
