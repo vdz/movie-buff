@@ -10,8 +10,8 @@ const { Meta } = Card;
 
 export function TitleResult({ id }: { id: string }) {
     const info = useSelector((state: RootState) => state.titles.byId[id]);
-    const dispatch = useDispatch();
     const isLoading = (!info);
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     
     return (
@@ -30,6 +30,11 @@ export function TitleResult({ id }: { id: string }) {
             <Meta title={info?.name} description={info?.details} />
         </TitleResultContainer>
     )
+
+// ██████████████████████████████████████████████████████████████████████████
+// ███▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄███
+// ███▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀███
+// ██████████████████████████████████████████████████████████████████████████
 
     function showRating() {
         if (!info) return null;

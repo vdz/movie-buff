@@ -3,7 +3,7 @@ import { Listener } from "../listener";
 import { theatersFetch } from "./theaters.actions";
 import { getTheaters, formatServerData } from "./theater.api";
 import { bookSeats, selectTitle } from "../bookings/bookings.actions";
-import { BookSeatsPayload, SeatInfo } from "../bookings/types";
+import { SeatInfo } from "../bookings/types";
 
 export const theatersListener: Listener[] = [
     {
@@ -38,20 +38,22 @@ export const theatersListener: Listener[] = [
         actionCreator: selectTitle,
         effect: async (_, { dispatch}) => {
             // preemptively populate theaters for the selected title
+            // it's a abstracted ask in form of an action, that will trigger
+            // a side-effect, that will be handled by the listener to fetch theaters (see above)
+            // either from a cached location or otherwise
             dispatch(theatersFetch());
         }
     },
     {
+        // In terms of theater availability etc, when `bookSeats` happens 
+        // we'd like to update theaters accordingly.
         actionCreator: bookSeats,
         effect: async (_, api: any) => {
             const showtimeId = api.getState().bookings.selectedShowtimeId;
             const seats = api.getState().bookings.selectedSeats;
 
+            // I do it one by one because I wrote it earlier and now saving time
             seats.forEach((seat: SeatInfo) => {
-                console.log('addOccupiedSeat', {
-                    showtimeId,
-                    seat
-                });
                 api.dispatch(addOccupiedSeat({
                     showtimeId,
                     seat
@@ -59,26 +61,4 @@ export const theatersListener: Listener[] = [
             });
         }
     }
-    // {
-    //     actionCreator: addSeat,
-    //     effect: async (action : { payload: AddSeatPayload }, { dispatch, getState }) => {
-    //         if (!getState().bookings.selectedShowtimeId) return;
-    //         dispatch(addOccupiedSeat({
-    //             showtimeId: getState().bookings.selectedShowtimeId,
-    //             seat: action.payload.seat
-    //         }));
-    //     }
-    // },
-    // {
-    //     actionCreator: removeSeat,
-    //     effect: async (action : { payload: RemoveSeatPayload }, { dispatch, getState }) => {
-    //         if (!getState().bookings.selectedShowtimeId) return;
-
-    //         dispatch(removeOccupiedSeat({
-    //             showtimeId: getState().bookings.selectedShowtimeId,
-    //             seat: action.payload.seat
-    //         }));
-    //     }
-    // }
-
 ]

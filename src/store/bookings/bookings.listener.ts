@@ -4,6 +4,7 @@ import { generateRandomID } from "@/lib/generateId";
 import { BookSeatsPayload } from "./types";
 import { selectBooking } from "./bookings.actions";
 
+// Register your "action" handlers here for the realm of: Bookings
 export const bookingsListener = [
     {
         actionCreator: bookSeats,

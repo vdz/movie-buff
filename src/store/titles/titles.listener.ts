@@ -5,6 +5,7 @@ import { TitleSetSearchTermPayload, TitlesFetchPayload, Title, TitlesState, Genr
 import { selectTitle } from "@/store/bookings/bookings.actions";
 import { theatersFetch } from "@/store/theaters/theaters.actions";
 
+// Register your "action" handlers here for the realm of: Titles
 export const titlesListener: Listener[]  = [
     {
         actionCreator: titlesFetch,
@@ -29,7 +30,7 @@ export const titlesListener: Listener[]  = [
             }
 
             let filtered = search(getState().titles.titles, searchTerm);
-            filtered = filter(getState().titles);
+            filtered = filter(getState().titles, filtered);
 
             dispatch(titlesSetFiltered({filtered}));
         }
@@ -56,6 +57,14 @@ export const titlesListener: Listener[]  = [
     },
 ]
 
+// ██████████████████████████████████████████████████████████████████████████
+// ███▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄███
+// ███▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀███
+// ██████████████████████████████████████████████████████████████████████████
+
+// These utils are related to buisiness logic of the app, they can "sit" elsewere
+
+// Basic search filter on the client side
 function search(titles: Title[], searchTerm: string): Title[] {
     return titles.filter((title: Title) => {
         return (title.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -69,6 +78,8 @@ function search(titles: Title[], searchTerm: string): Title[] {
 
 // very basic filtering done not in the most efficient way to lessen the time complexity
 function filter(state: TitlesState, filtered?: Title[]): Title[] {
+    if (filtered && filtered.length === 0) return []
+
     let result = filtered || state.titles;
     const filter = state.filter;
 

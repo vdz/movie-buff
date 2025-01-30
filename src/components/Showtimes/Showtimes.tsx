@@ -19,14 +19,23 @@ export function Showtimes() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    useManualHydration(theatersFetch, (state: RootState) => state.theaters.status);
-    
+    // I used it when I was loading specific URL directly for debugging, 
+    // but an alternative is to use a router-connected hydration
+    // This is simple fix that React allows, in this architecture React 
+    // shouldn't have to handle implementation details of a fetch, 
+    // that is also why a reusable hook is possible here
     return (
         <ShowtimesContainer>
             <ShowtimesTitle level={2}>Showtimes for <span>{title}</span></ShowtimesTitle>
             {showListingsByTheater()}
         </ShowtimesContainer>
     );
+
+// ██████████████████████████████████████████████████████████████████████████
+// ███▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄███
+// ███▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀███
+// ██████████████████████████████████████████████████████████████████████████
+
 
     // You're probably wondering what about memoizing all of these 
     // functions I add as utility in components — especially the one below.

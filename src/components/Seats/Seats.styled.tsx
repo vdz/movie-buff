@@ -140,6 +140,9 @@ export const SeatSelectorSeat = styled(Button)`
         &:hover {
             border-color: var(--remove-color);
         }
+        &::after {
+            content: '×';
+        }
     }
 
 `;

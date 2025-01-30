@@ -42,9 +42,6 @@ export function Seat({ showtimeId, seat, row }: {
             onClick={() => {
                 if (isOccupied) return;
 
-                console.log(row, seat, isSelected);
-
-
                 if (isSelected) {
                     dispatch(removeSeat({ seat: { row, seat } }));
                 } else {

@@ -11,6 +11,8 @@ import '@/styles/index.css' // global theme config via variables
 import 'antd/dist/antd'; // antd css
 
 // Preemptive store hydration
+// This should be in a systematic way according to need of the app,
+// where local storage can be used to hydrate the state until server is ready, etc.
 store.dispatch(titlesFetch({}));
 
 createRoot(document.getElementById('root')!).render(

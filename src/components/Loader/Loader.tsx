@@ -2,19 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Spin, Space } from 'antd';
 import { LoaderContainer, LoadingMessage, ProgressBar } from './Loade.styled';
 
-const MOVIE_LOADING_PHRASES = [
-  "Directing background chickens",
-  "Polishing Oscar statues",
-  "Brewing actor coffee",
-  "Framing superhero cameos",
-  "Rehearsing dramatic pauses",
-  "Calming method actors",
-  "Fixing continuity errors",
-  "Hiding film crew snacks",
-  "Cueing ominous soundtrack",
-  "Training CGI dragons",
-];
-
+// This is just a fun loader don't pay to much attention to it.
 const Loader: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   const [currentMessage, setCurrentMessage] = useState(0);
   const [progress, setProgress] = useState(0);
@@ -59,5 +47,20 @@ const Loader: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
     );
   }
 };
+
+
+const MOVIE_LOADING_PHRASES = [
+  "Directing background chickens",
+  "Polishing Oscar statues",
+  "Brewing actor coffee",
+  "Framing superhero cameos",
+  "Rehearsing dramatic pauses",
+  "Calming method actors",
+  "Fixing continuity errors",
+  "Hiding film crew snacks",
+  "Cueing ominous soundtrack",
+  "Training CGI dragons",
+];
+
 
 export default Loader;

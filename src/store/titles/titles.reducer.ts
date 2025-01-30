@@ -11,7 +11,7 @@ export const defaultState: TitlesState = {
     search: '',
     filter: { // key-value map of filters
         genre: {
-            value: null,
+            value: [],
             // order: 'asc' this can be added later
         },
         rating: {

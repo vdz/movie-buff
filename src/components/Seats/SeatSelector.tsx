@@ -16,6 +16,11 @@ export function SeatSelector({ showtimeId }: { showtimeId: string }) {
         </SeatSelectorContainer>
     );
 
+// ██████████████████████████████████████████████████████████████████████████
+// ███▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄███
+// ███▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀███
+// ██████████████████████████████████████████████████████████████████████████
+
     function showSeatRows() {
         const rows = theater.numberOfRows;
         const totalSeats = theater.totalSeats;

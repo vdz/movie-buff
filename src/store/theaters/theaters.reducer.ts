@@ -39,6 +39,7 @@ export const reducer = createReducer(defaultState, (builder) => {
         
         state.byShowtimes[showtimeId] = showtime;
 
+        // update index tables as well
         const showtimeIndex = state.byId[showtime.theaterId].showtimes.findIndex(st => st.id === showtimeId);
         state.byId[showtime.theaterId].showtimes[showtimeIndex] = showtime;
 
@@ -57,6 +58,7 @@ export const reducer = createReducer(defaultState, (builder) => {
 
         state.byShowtimes[showtimeId] = showtime;
 
+        // update index tables as well
         const showtimeIndex = state.byId[showtime.theaterId].showtimes.findIndex(st => st.id === showtimeId);
         state.byId[showtime.theaterId].showtimes[showtimeIndex] = showtime;
 

@@ -4,19 +4,17 @@ import { TitleInfoContainer, TitleInfoHeader } from './Titles.styled';
 import { TitleResult } from './TitleResult';
 import { Showtimes } from '@/components/Showtimes/Showtimes';
 import { Outlet, useParams } from 'react-router-dom';
-import { titlesFetch } from '@/store/titles/titles.actions';
-import { useManualHydration } from '@/lib/useManualHydration';
 import { useEffect } from 'react';
 import { selectTitle } from '@/store/bookings/bookings.actions';
 
 export function TitleInfo() {
     const id = useParams().id;
     const selectedTitleId = useSelector((state: RootState) => state.bookings.selectedTitleId);
-    const dispatch = useDispatch();
     const info = useSelector((state: RootState) => state.titles.byId[id!] || null);
+    const dispatch = useDispatch();
 
-    useManualHydration(titlesFetch, (state: RootState) => state.titles.status);
-
+    // when URL loaded directly manually set this, otherwise 
+    // should be solve at the top level with router-connected solution
     useEffect(() => {
         if (!selectedTitleId) {
             dispatch(selectTitle({ titleId: id! }));

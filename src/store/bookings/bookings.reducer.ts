@@ -10,6 +10,7 @@ export const defaultState: BookingState = {
     bookings: {},
 };
 
+// Simple reducers, **no business logic in them**
 export const reducer = createReducer<BookingState>(defaultState, (builder) => {
     builder.addCase(selectTitle, (state, action) => {
         state.selectedTitleId = action.payload.titleId;

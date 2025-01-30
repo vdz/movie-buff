@@ -2,6 +2,7 @@ import { createAction } from "@reduxjs/toolkit";
 import { AddSeatPayload, SaveBookingPayload, RemoveSeatPayload, SelectShowtimePayload, SelectTitlePayload, SelectBookingPayload } from "./types";
 
 
+// The App vocabuary Part: Bookings
 export const selectTitle = createAction<SelectTitlePayload>('bookings/selectTitle');
 export const selectShowtime = createAction<SelectShowtimePayload>('bookings/selectShowtime');
 export const addSeat = createAction<AddSeatPayload>('bookings/addSeat');

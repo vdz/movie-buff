@@ -5,8 +5,6 @@ import { NoResults, Title, TitleList, TitlesContainer } from './Titles.styled';
 import { TitleResult } from './TitleResult';
 import { Search } from '@/components/Search/Search';
 import { Filters } from '../Filters/Filters';
-import { titlesFetch } from '@/store/titles/titles.actions';
-import { useManualHydration } from '@/lib/useManualHydration';
 
 export function Titles() {
     const titles = useSelector((state: RootState) => state.titles.titles);
@@ -15,7 +13,10 @@ export function Titles() {
     const filter = useSelector((state: RootState) => state.titles.filter);
     const isLoading = useSelector((state: RootState) => state.titles.status === 'loading');
 
-    useManualHydration(titlesFetch, (state: RootState) => state.titles.status);
+    // If you uncomment this, your component will be able to initiate hydration 
+    // without knowing any of the implementation detail of the actual hydration.
+    // Since we hydrate at the top level, this is not needed.
+    // useManualHydration(titlesFetch, (state: RootState) => state.titles.status);
 
     return (
         <TitlesContainer>
@@ -26,13 +27,19 @@ export function Titles() {
         </TitlesContainer>
     )
 
+// ██████████████████████████████████████████████████████████████████████████
+// ███▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄███
+// ███▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀███
+// ██████████████████████████████████████████████████████████████████████████
+
+
     function showTitles() {
         if (isLoading) {
             return <Loader />;
         }
         
         let result = titles;
-        if (search || filter.genre.value || filter.rating.value) {
+        if (search || filter.genre.value.length > 0 || filter.rating.value) {
             result = filtered;
         }
 

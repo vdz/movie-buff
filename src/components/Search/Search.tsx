@@ -10,6 +10,10 @@ export function Search() {
     const term = useSelector((state: RootState) => state.titles.search);
 
     // Memoized callback to prevent unnecessary re-renders
+    // BUT(!)
+    // I prefer just adding functions AFTER the return statement for easier reading,
+    // and they are memoized by React Compiler anyway (since v19)
+    // You'll see examples of it in the codebase.
     const handleSearchChange = useCallback(
         (value: string | number) => dispatch(titleSetSearchTerm(String(value))),
         [dispatch]

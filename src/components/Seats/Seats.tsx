@@ -26,7 +26,10 @@ export function Seats() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // emergency hydradion in absence of a router-connected hydration
+    // emergency hydradion in absence of a router-connected hydration 
+    // (hydration should be solved in a more robust at the top level)
+    // I used it when I was loading specific URL directly for debugging
+    // My diregard this useEffect
     useEffect(() => {
         if (!isSelected) {
             dispatch(selectShowtime({ showtimeId: showtimeId! }));
@@ -67,6 +70,11 @@ export function Seats() {
             <SeatSelector showtimeId={showtimeId!} />
         </SeatsContainer>
     );
+
+// ██████████████████████████████████████████████████████████████████████████
+// ███▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄████▄░░░▄███
+// ███▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀████▀░░░▀███
+// ██████████████████████████████████████████████████████████████████████████
 
     function getBookButton() {
         return <BookButton type="primary" 
