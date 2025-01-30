@@ -1,50 +1,51 @@
-# React + TypeScript + Vite
+# A mock movie ticketing app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## The purpose of this document
+This is a simple instruction letter to a) explain how to run theis project and b) to explain some of my decisions and thinking.
 
-Currently, two official plugins are available:
+## Setup
+1. Clone the repo
+2. Run `npm install`
+3. Run `npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Design Approach
+While the instruction that were provided were great, still some motivational points for an app like these are obsccure and decisions should be made. So...
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+I had approched this pfrom a perspective of a rich client app that will grow and evolve. So I would like to have a) high **maintainability** and b) high **performance**.
 
-- Configure the top-level `parserOptions` property like this:
+### Maintainability
+By using Redux with Listener middleware (RTK) in a specific way I'd presented here you may (and should) keep all of the other pieces very dumb and declarative: 
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+* Components will have no business logic and no internal state (except some edge/atomic dependencies)
+* Reducer will contain **no** business logic
+* Actions declarative and very simple
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Business Logic is handled only by listeners, allowing managing the app by means of simple messages (Actions).
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+This way App can grow in complexity in terms of features, but stay at the same level of complexity code-wise.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Disclamer: I know that simpler solution are plenty with simpler state management tools like Zustand or Context API or ever Signals.js. However I chose this architecture to showcase it to you.
+
+### Styling
+It is tempting to use Tailwind CSS for styling and the amazingly convenient shadcn/ui, however I detest how it bloats the JSX, and it is not good maintainability practice. Also it might encorage frontend devs to forget CSS, that is super poverful — So I've used `styled-components` and wrote the CSS myself, and used Ant Design components.
+
+## Going over the code
+Just start the the very top `src` folder, and find there 2 files:
+
+* `main.tsx` - this is the entry point of the app
+* `router.tsx` - you'll see there top level components
+
+And just go down which ever path you'll like from the router.
+
+## Remarks
+This was a large-ish task, so I cut corners trying to save time. No tests for example. I left comments in the code to explain some of the decisions.
+
+Also some of the code that is repeated handled in a non-consistent way simply because I wanted to show different possible approaches.
+
+This code wasn't written by AI, but I have worked with AI a lot to help me with the mockes, and other relevant queries.
+
+---
+
+Thank you for the opportunity to get to know you through this project!
+🤩
