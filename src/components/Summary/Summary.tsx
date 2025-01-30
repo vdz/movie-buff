@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Empty } from "antd";
 import { Link } from "react-router-dom";
-import { getHomePath } from "@/lib/paths";
+import { getHomePath, getTitlePagePath } from "@/lib/paths";
 import { formatShowtime } from "@/lib/formatShowtime";
 import { SummaryList, SummaryContainer, Title, ExternalLink } from "./Summary.styled";
 
@@ -42,9 +42,10 @@ export function Summary() {
                 <dt>and paid a total price of</dt>
                 <dd>${booking.price}</dd>
                 <dd className="actions">
-                    <ExternalLink href="">Add to Calendar</ExternalLink>
-                    <ExternalLink href="">Share with friends</ExternalLink>
-                    <Link to={getHomePath()}>Back to home</Link>
+                    <ExternalLink href="">Add toCalendar</ExternalLink>
+                    <ExternalLink href="">Share</ExternalLink>
+                    <Link to={getHomePath()}>Home</Link>
+                    <Link to={getTitlePagePath(titleId)}>Film</Link>
                 </dd>
             </SummaryList>
         </SummaryContainer>

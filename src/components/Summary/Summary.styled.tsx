@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Button } from "antd";
 
 export const SummaryContainer = styled.main`
     background-color: var(--color-background);
@@ -16,7 +15,7 @@ export const Title = styled.h1`
 `;
 
 export const SummaryList = styled.dl`
-    max-width: 300px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     align-items:0.8rem;
@@ -43,6 +42,7 @@ export const SummaryList = styled.dl`
             flex-direction: row;
             font-weight: 400;
             align-items: center;
+            justify-content: space-between;
             gap: 0.5rem;
             font-size: 0.7rem;
             margin-top: 1rem;

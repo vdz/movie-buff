@@ -16,6 +16,8 @@ Just start the the very top `src` folder. Take in the folder structure, then fin
 
 And just go down which ever path you'll like from the router.
 
+To see that your bookings change availability, just go back to "Film" in booking summary page, you'll see. Otherwise it's not persistent of course (without server based API persistency)
+
 ### Folder structure
  — `components` - React components
 

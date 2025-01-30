@@ -1,17 +1,19 @@
-import { useDispatch } from "react-redux";
-import { FiltersContainer, RatingSelect, GenreSelect } from "./Filters.styled";
+import { useDispatch, useSelector } from "react-redux";
+import { FiltersContainer, RatingSelect, GenreSelect, Explanation } from "./Filters.styled";
 import { titlesSetGenre, titlesSetRating } from "@/store/titles/titles.actions";
-import { Flex, Typography } from "antd";
+import { Flex } from "antd";
+import { RootState } from "@/store/store";
 
 export function Filters() {
     const dispatch = useDispatch();
+    const rating = useSelector((state: RootState) => state.titles.rating);
 
     return (
         <FiltersContainer>
-            <Typography.Text>
+            <Explanation>
                 Filter by Genres (AND)
                 Filter by Rating (Chosen and above)
-            </Typography.Text>
+            </Explanation>
             <Flex justify="space-between" align="center" gap="small">
                 <GenreSelect mode="multiple" 
                     placeholder="Filter by Genres"
@@ -28,6 +30,7 @@ export function Filters() {
                     allowClear
                     size="middle"
                     options={ratingOptions}
+                    value={rating}
                     onChange={(value: any) => {
                         dispatch(titlesSetRating({ value }))
                     }}/>

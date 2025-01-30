@@ -6,7 +6,13 @@ export const FiltersContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: calc(var(--app-gap) * 4);
+    gap: calc(var(--app-gap) * 2);
+    margin-bottom: 1.5rem;
+`;
+
+export const Explanation = styled.div`
+    font-size: 1rem;
+    color: var(--primary-color-lighter);
 `;
 
 export const GenreSelect = styled(Select)`

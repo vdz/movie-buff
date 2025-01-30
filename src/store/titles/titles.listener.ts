@@ -1,5 +1,5 @@
 import { Listener } from "@/store/listener";
-import { titlesFetch, titlesFetchSuccess, titlesFetchFailure, titleSetSearchTerm, titlesSetFiltered, titlesSetGenre, titlesSetRating } from "./titles.actions";
+import { titlesFetch, titlesFetchSuccess, titlesFetchFailure, titleSetSearchTerm, titlesSetFiltered, titlesSetGenre, titlesSetRating, titlesFilterResetAll } from "./titles.actions";
 import { formatServerData, getTitles } from "./titles.api";
 import { TitleSetSearchTermPayload, TitlesFetchPayload, Title, TitlesState, Genre } from "./types";
 import { selectTitle } from "@/store/bookings/bookings.actions";
@@ -52,6 +52,7 @@ export const titlesListener: Listener[]  = [
     {
         actionCreator: selectTitle,
         effect: async (_, { dispatch}) => {
+            dispatch(titlesFilterResetAll());
             dispatch(theatersFetch());
         }
     },
