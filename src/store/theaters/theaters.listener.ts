@@ -1,10 +1,9 @@
-import { addOccupiedSeat, removeOccupiedSeat, theatersFetchFailure, theatersFetchSuccess } from "./theaters.actions";
-
+import { addOccupiedSeat, theatersFetchFailure, theatersFetchSuccess } from "./theaters.actions";
 import { Listener } from "../listener";
 import { theatersFetch } from "./theaters.actions";
 import { getTheaters, formatServerData } from "./theater.api";
-import { addSeat, removeSeat, selectTitle } from "../bookings/bookings.actions";
-import { AddSeatPayload, RemoveSeatPayload } from "../bookings/types";
+import { bookSeats, selectTitle } from "../bookings/bookings.actions";
+import { BookSeatsPayload, SeatInfo } from "../bookings/types";
 
 export const theatersListener: Listener[] = [
     {
@@ -42,6 +41,24 @@ export const theatersListener: Listener[] = [
             dispatch(theatersFetch());
         }
     },
+    {
+        actionCreator: bookSeats,
+        effect: async (_, api: any) => {
+            const showtimeId = api.getState().bookings.selectedShowtimeId;
+            const seats = api.getState().bookings.selectedSeats;
+
+            seats.forEach((seat: SeatInfo) => {
+                console.log('addOccupiedSeat', {
+                    showtimeId,
+                    seat
+                });
+                api.dispatch(addOccupiedSeat({
+                    showtimeId,
+                    seat
+                }));
+            });
+        }
+    }
     // {
     //     actionCreator: addSeat,
     //     effect: async (action : { payload: AddSeatPayload }, { dispatch, getState }) => {

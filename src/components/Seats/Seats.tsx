@@ -13,6 +13,7 @@ import { GENERIC_TICKET_PRICE } from "@/lib/constants";
 import { formatShowtime } from "@/lib/formatShowtime";
 import { useEffect } from "react";
 import { resetBooking } from "@/store/bookings/bookings.actions";
+import { getSummaryPagePath } from "@/lib/paths";
 const { Title } = Typography;
 
 export function Seats() {
@@ -49,7 +50,7 @@ export function Seats() {
                             dispatch(selectShowtime({ showtimeId: '' }));
                             dispatch(resetBooking());
                         }}
-                        title={<Title level={1}>Seats</Title>}
+                        title={<Title level={1}>Seat Selection</Title>}
         >
             <SeatsHeader direction="horizontal">
                 <ShowtimesInfo>
@@ -72,7 +73,10 @@ export function Seats() {
             disabled={reservedSeats.length === 0}
             variant="filled"
             onClick={() => {
-            dispatch(bookSeats());
-        }}>Book</BookButton>;
+                dispatch(bookSeats());
+                navigate(getSummaryPagePath());
+            }}>
+                Book
+            </BookButton>;
     }
 }

@@ -1,11 +1,13 @@
 import { BookingState } from "./types";
 import { createReducer } from "@reduxjs/toolkit";
-import { addSeat, removeSeat, resetBooking, selectShowtime, selectTitle } from "./bookings.actions";
+import { addSeat, saveBooking, removeSeat, resetBooking, selectShowtime, selectTitle, selectBooking } from "./bookings.actions";
 
 export const defaultState: BookingState = {
     selectedTitleId: '',
     selectedShowtimeId: '',
-    selectedSeats: [],
+    selectedBookingId: '',
+    selectedSeats: [],  
+    bookings: {},
 };
 
 export const reducer = createReducer<BookingState>(defaultState, (builder) => {
@@ -20,5 +22,9 @@ export const reducer = createReducer<BookingState>(defaultState, (builder) => {
     }).addCase(resetBooking, (state) => {
         state.selectedShowtimeId = '';
         state.selectedSeats = [];
-    });
+    }).addCase(saveBooking, (state, action) => {
+        state.bookings[action.payload.id] = action.payload.booking;
+    }).addCase(selectBooking, (state, action) => {
+        state.selectedBookingId = action.payload.id;
+    })  ;
 });

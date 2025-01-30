@@ -1,5 +1,7 @@
-import { Button, Image } from "antd";
+import { Button, Image, Typography } from "antd";
 import styled from "styled-components";
+
+const { Title } = Typography;
 
 export const TheaterSummaryContainer = styled.div`
     display: flex;
@@ -19,6 +21,19 @@ export const ShowtimesContainer = styled.section`
     background-color: #fff;
     padding: 16px;
     border-left: 1px solid var(--primary-color-lighter);
+`;
+
+
+export const ShowtimesTitle = styled(Title)`
+    font-family: Avenir;
+    font-weight: 900 !important;
+    font-size: 1.5rem !important;
+    color: var(--primary-color-light) !important;
+    margin-bottom: calc(var(--app-gap) * 4) !important;
+
+    span {
+        color: var(--secondary-color);
+    }
 `;
 
 export const TheaterSummary = styled.dl`
@@ -63,8 +78,8 @@ export const TheaterLocation = styled.p`
 
 export const TheaterLocationImage = styled(Image)`
     max-width: 100px;
-    border: 3px solid var(--background-color);
     object-fit: cover;
+    border-radius: var(--border-radius);
 `;
 
 export const ShowtimesList = styled.dd`

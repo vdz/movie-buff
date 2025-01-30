@@ -2,6 +2,8 @@ import { createBrowserRouter } from 'react-router-dom';
 import { Titles, TitleInfo } from '@/components/Titles';
 import { Seats } from '@/components/Seats/Seats';
 import { MovieBuffPage } from '@/layouts/main/MovieBuffPage';
+import { Summary } from './components/Summary/Summary';
+import { SummaryLoader } from './components/Summary/Summary.Loader';
 
     
 export const routes = [
@@ -27,15 +29,25 @@ export const routes = [
                     }
                 ]
             },
+            {
+                path: 'summary/:id',
+                name: 'summary-with-id',
+                element: <Summary />,
+            },
+            {
+                path: 'summary',
+                name: 'summary',
+                element: <SummaryLoader />,
+            }
         ]
     },
-    
-    /*{
-        path: '/seats/:listingId',
-        element: <Seats />,
-    } */
 ];
 
 export const router = createBrowserRouter(routes);
 export type Router = typeof router;
+
+export function navigate(path: string) {
+    console.log('navigate', path);
+    router.navigate(path);
+}
 

@@ -28,39 +28,39 @@ export const reducer = createReducer(defaultState, (builder) => {
         const { showtimeId, seat } = action.payload;
         const showtime = state.byShowtimes[showtimeId];
 
-        if (showtime) {
-            showtime.seatsAvailable--;
-            
-            if (!showtime.occupancy[seat.row]) {
-                showtime.occupancy[seat.row] = [];
-            }
-            showtime.occupancy[seat.row]!.push(seat.seat);
-            
-            state.byShowtimes[showtimeId] = showtime;
+        if (!showtime) return;
 
-            const showtimeIndex = state.byId[showtime.theaterId].showtimes.findIndex(st => st.id === showtimeId);
-            state.byId[showtime.theaterId].showtimes[showtimeIndex] = showtime;
+        showtime.seatsAvailable--;
             
-            const theatreIndex = state.theaters.findIndex(t => t.id === showtime.theaterId);
-            state.theaters[theatreIndex] = state.byId[showtime.theaterId];
+        if (!showtime.occupancy[seat.row]) {
+            showtime.occupancy[seat.row] = [];
         }
+        showtime.occupancy[seat.row]!.push(seat.seat);
+        
+        state.byShowtimes[showtimeId] = showtime;
+
+        const showtimeIndex = state.byId[showtime.theaterId].showtimes.findIndex(st => st.id === showtimeId);
+        state.byId[showtime.theaterId].showtimes[showtimeIndex] = showtime;
+
+        const theatreIndex = state.theaters.findIndex(t => t.id === showtime.theaterId);
+        state.theaters[theatreIndex] = state.byId[showtime.theaterId];
     }).addCase(removeOccupiedSeat, (state, action) => {
         const { showtimeId, seat } = action.payload;
         const showtime = state.byShowtimes[showtimeId];
-        
-        if (showtime) {
-            showtime.seatsAvailable++;
 
-            const seatIndex = showtime.occupancy[seat.row]!.findIndex(s => s === seat.seat);
-            showtime.occupancy[seat.row]!.splice(seatIndex, 1);
+        if (!showtime) return;
 
-            state.byShowtimes[showtimeId] = showtime;
+        showtime.seatsAvailable++;
 
-            const showtimeIndex = state.byId[showtime.theaterId].showtimes.findIndex(st => st.id === showtimeId);
-            state.byId[showtime.theaterId].showtimes[showtimeIndex] = showtime;
+        const seatIndex = showtime.occupancy[seat.row]!.findIndex(s => s === seat.seat);
+        showtime.occupancy[seat.row]!.splice(seatIndex, 1);
 
-            const theatreIndex = state.theaters.findIndex(t => t.id === showtime.theaterId);
-            state.theaters[theatreIndex] = state.byId[showtime.theaterId];
-        }
+        state.byShowtimes[showtimeId] = showtime;
+
+        const showtimeIndex = state.byId[showtime.theaterId].showtimes.findIndex(st => st.id === showtimeId);
+        state.byId[showtime.theaterId].showtimes[showtimeIndex] = showtime;
+
+        const theatreIndex = state.theaters.findIndex(t => t.id === showtime.theaterId);
+        state.theaters[theatreIndex] = state.byId[showtime.theaterId];
     })
 });

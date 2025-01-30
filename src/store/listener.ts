@@ -3,6 +3,7 @@ import { RootState, AppDispatch } from "./store";
 import { createListenerMiddleware } from "@reduxjs/toolkit";
 import { titlesListener } from "./titles/titles.listener";
 import { theatersListener } from "./theaters/theaters.listener";
+import { bookingsListener } from "./bookings/bookings.listener";
 const listenerMiddleware = createListenerMiddleware();
 
 export const startAppListening =
@@ -17,6 +18,7 @@ export interface Listener {
 const listeners: Listener[][] = [
    titlesListener,
    theatersListener,
+   bookingsListener
 ];
 
 export function initAppListeners() {

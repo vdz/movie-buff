@@ -1,5 +1,7 @@
-import { Button, Descriptions, Modal, Space } from "antd";
+import { Button, Descriptions, Modal, Select, Space } from "antd";
 import { styled } from "styled-components";
+
+const SEAT_SIZE = 24;
 
 export const SeatsContainer = styled(Modal)`
     min-width: 90vw;
@@ -7,22 +9,13 @@ export const SeatsContainer = styled(Modal)`
 
     h1.ant-typography {
         font-weight: 900;
+        text-align: center;
+        color: var(--primary-color-light);
     }
     
     .ant-typography {
         font-family: var(--font-family);
     }
-    
-    /* position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; */
 `;
 
 export const SeatsHeader = styled(Space)`
@@ -87,8 +80,8 @@ export const SeatSelectorRow = styled(Space)`
 `;
 
 export const RowNumber = styled(Button)`
-    width: 20px;
-    height: 20px;
+    width: ${SEAT_SIZE}px;
+    height: ${SEAT_SIZE}px;
     padding: 0;
     margin: 0;
     font-size: 0.6rem;
@@ -96,20 +89,30 @@ export const RowNumber = styled(Button)`
 `;
 
 export const SeatSelectorSeat = styled(Button)`
-    width: 20px;
-    height: 20px;
+    width: ${SEAT_SIZE}px;
+    height: ${SEAT_SIZE}px;
     padding: 0;
     margin: 0;
     font-size: 0.6rem;
     border-radius: var(--border-radius);
     border: 2px solid transparent;
 
-    &:hover {
-        border-color: var(--primary-color-light);
-        background-color: var(--secondary-color);
-
-        
+    &::after {
+        content: '⊕';
+        color: var(--primary-color-lighter);
+        font-size: 1rem;
+        line-height: 20px;
+        text-align: center;
     }
+
+    &:hover {
+        border-color: var(--secondary-color);
+
+        &::after {
+            color: var(--secondary-color);
+        }
+    }
+
 
     &.selected {
         background-color: var(--secondary-color);
@@ -118,10 +121,6 @@ export const SeatSelectorSeat = styled(Button)`
 
         &::after {
             content: '☑︎';
-            font-size: 1rem;
-            width: 100%;
-            line-height: 20px;
-            text-align: center;
         }
 
         &:hover {
@@ -143,4 +142,8 @@ export const SeatSelectorSeat = styled(Button)`
         }
     }
 
+`;
+
+export const BookingList = styled(Select)`
+    align-self: center;
 `;

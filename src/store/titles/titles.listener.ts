@@ -53,7 +53,7 @@ export const titlesListener: Listener[]  = [
         effect: async (_, { dispatch}) => {
             dispatch(theatersFetch());
         }
-    }
+    },
 ]
 
 function search(titles: Title[], searchTerm: string): Title[] {

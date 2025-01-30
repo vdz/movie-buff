@@ -1,6 +1,6 @@
 import { RootState } from "@/store/store";
 import { useDispatch, useSelector } from "react-redux";
-import { ShowtimesContainer, TheaterSummary, TheaterDetails, ShowtimesList, TheaterShowtime, TheaterName, TheaterLocation, TheaterLocationImage } from "./Theater.styled";
+import { ShowtimesContainer, TheaterSummary, TheaterDetails, ShowtimesList, TheaterShowtime, TheaterName, TheaterLocation, TheaterLocationImage } from "./Showtimes.styled";
 import Loader from "../Loader/Loader";
 import { theatersFetch } from "@/store/theaters/theaters.actions";
 import { useManualHydration } from "@/lib/useManualHydration";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { getSeatsPath } from "@/lib/paths";
 import { Showtime } from "@/store/theaters/types";
 import { formatShowtime } from "@/lib/formatShowtime";
-import { Title } from "../Titles/Titles.styled";
+import { ShowtimesTitle } from "./Showtimes.styled";
 
 
 export function Showtimes() {
@@ -23,7 +23,7 @@ export function Showtimes() {
     
     return (
         <ShowtimesContainer>
-            <Title>Showtimes for <span>{title}</span></Title>
+            <ShowtimesTitle level={2}>Showtimes for <span>{title}</span></ShowtimesTitle>
             {showListingsByTheater()}
         </ShowtimesContainer>
     );

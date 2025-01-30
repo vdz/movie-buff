@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
-import { TitleInfoContainer, TitleInfoHeader, TitleInfoTitle } from './Titles.styled';
+import { TitleInfoContainer, TitleInfoHeader } from './Titles.styled';
 import { TitleResult } from './TitleResult';
-import { Showtimes } from '@/components/Theater/Showtimes';
+import { Showtimes } from '@/components/Showtimes/Showtimes';
 import { Outlet, useParams } from 'react-router-dom';
 import { titlesFetch } from '@/store/titles/titles.actions';
 import { useManualHydration } from '@/lib/useManualHydration';
