@@ -16,7 +16,7 @@ Just start the the very top `src` folder. Take in the folder structure, then fin
 
 And just go down which ever path you'll like from the router.
 
-To see that your bookings change availability, just go back to "Film" in booking summary page, you'll see. Otherwise it's not persistent of course (without server based API persistency)
+(In the app to see that your bookings change availability, just go back to "Film" in booking summary page, you'll see. Otherwise it's not persistent of course (without server based API persistency))
 
 ### Folder structure
  — `components` - React components
@@ -35,7 +35,7 @@ To see that your bookings change availability, just go back to "Film" in booking
 ## Design Approach
 While the instruction that were provided were great, still some motivational points for an app like these are obsccure and decisions should be made. So...
 
-I had approched this pfrom a perspective of a rich client app that will grow and evolve. So I would like to have a) high **maintainability** and b) high **performance**.
+I had approched this from a perspective of a rich client app that will grow and evolve. So I would like to have a) high **maintainability** and b) high **performance**.
 
 ### Maintainability
 By using Redux with Listener middleware (RTK) in a specific way I'd presented here you may (and should) keep all of the other pieces very dumb and declarative: 
@@ -50,14 +50,22 @@ This way App can grow in complexity in terms of features, but stay at the same l
 
 Disclamer: I know that simpler solution are plenty with simpler state management tools like Zustand or Context API or ever Signals.js. However I chose this architecture to showcase it to you.
 
+### Performance
+Some notes on performance:
+I assumed some data structure that a backend will provide will not be 100% compatible to the frontend, so I create several data structure (mappings) to allow O(1) access to the data, suitable for client use.
+
+Also memoization of functions in React is assumed as if I'm using React 19 Compiler.
+
+Also all of the state access by the components is done through Reselect selectors, which are being cached.
+
 ### Global state
-Global state management allows a holistic view of the app, and is better for rapid changes and additions of features in the app. This way everything can affect everything without underming existing dependencies (at least in the architecture I've presented here).
+IMO global state management allows a holistic view of the app, and is better for rapid changes and additions of features in the app. This way everything can affect everything without underming existing dependencies (at least in the architecture I've presented here).
 
 ### Reusability
-My components work will almost no outside props, they get all from global state, this is because my focus here is on the App at large. However this will not be a problem for reuse, on the contrary: same vars that are connected to the state should be rewired for a different project, otherwise used freely in the same app.
+My components work with almost no props (Drill, baby drill not!). They get all from global state, this is because my focus here is on the App scope — components are not independent, but are tied to the specific App. However, this will not be a problem for reusability. On the contrary: just like you'd use Shadcn/UI components, I expect you to copy the component you'd like to reuse from project to project, and rewire the selectors to the new project (if needed). There're great benefits for maintainability in this approach.
 
 ### Styling
-It is tempting to use Tailwind CSS for styling and the amazingly convenient shadcn/ui, however I detest how it bloats the JSX, and it is not good maintainability practice. Also it might encorage frontend devs to forget CSS, that is super poverful — So I've used `styled-components` and wrote the CSS myself, and used Ant Design components.
+It is tempting to use Tailwind CSS for (fast) styling and the amazingly convenient shadcn/ui, **however** I detest how it bloats the JSX, and it is not good maintenance practice. Also it might encorage frontend devs to forget CSS, that is super powerful — So I've used `styled-components` as a great semantic wrapper for the markup in my React components. I wrote the CSS myself in addition to some Ant Design components (as suggested in the instructions).
 
 
 ## Final remarks
@@ -65,7 +73,7 @@ This was a large-ish task, so I cut corners trying to save time. No tests for ex
 
 Also some of the code that is repeated handled in a non-consistent way simply because I wanted to show different possible approaches (mentioned in the comments).
 
-This code wasn't written by AI, but I have worked with AI a lot to help me with the mockes, and other relevant queries.
+This code wasn't written by AI, but I have worked with AI to help me with the mocks, and other relevant queries.
 
 ### References
 * Design doc I'd used [/docs/Movie Buff design.pdf](<docs/Movie Buff design.pdf>)
