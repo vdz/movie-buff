@@ -67,9 +67,8 @@ My components work with almost no props (Drill, baby drill not!). They get all f
 ### Styling
 It is tempting to use Tailwind CSS for (fast) styling and the amazingly convenient shadcn/ui, **however** I detest how it bloats the JSX, and it is not good maintenance practice. Also it might encorage frontend devs to forget CSS, that is super powerful — So I've used `styled-components` as a great semantic wrapper for the markup in my React components. I wrote the CSS myself in addition to some Ant Design components (as suggested in the instructions).
 
-
 ## Final remarks
-This was a large-ish task, so I cut corners trying to save time. No tests for example. I left comments in the code to explain some of the decisions I'd made. 
+This was a large-ish task, so I cut corners trying to save time. No tests for example. No site design — only the bare minimum. Etc. I left comments in the code to explain some of the decisions I'd made. 
 
 Also some of the code that is repeated handled in a non-consistent way simply because I wanted to show different possible approaches (mentioned in the comments).
 
